@@ -1,0 +1,28 @@
+{
+  "name": "viableui-mapboxgl",
+  "version": "0.0.1",
+  "description": "A MapboxGL implementation for Angular.js",
+  "main": "viableui-mapboxgl.js",
+  "directories": {},
+  "dependencies": {
+    "npm": "^6.0.0"
+  },
+  "scripts": {},
+  "keywords": [
+    "angular.js",
+    "angular",
+    "mapbox",
+    "mapboxgl",
+    "webgl",
+    "leaflet"
+  ],
+  "authors": [
+    "Viable Industries, L.L.C. <grow@viable.io>"
+  ],
+  "license": "Proprietary",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:viableindustries/viableui-mapboxgl.git"
+  }
+}
