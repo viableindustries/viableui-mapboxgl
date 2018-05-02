@@ -132,16 +132,95 @@ self.basemap = {
 [More information about map.setLayoutProperty](https://www.mapbox.com/mapbox-gl-js/api#map#setlayoutproperty)
 
 ### Add a hover state for a specific map layer
+```
+self.map.addSource("counties", {
+    "type": "vector",
+    "url": "mapbox://ACCOUNT.STYLE"
+});
 
-### Load an image to use for a map pin/marker
+self.map.addLayer({
+   'id': 'ORIGINAL_LAYER',
+   'type': 'fill',
+   'source': "counties", // SEE SOURCE LOAD ABOVE
+   'source-layer': 'NAME_OF_LAYER_FROM_MAPBOX_URL',
+   'paint': {...}
+   'layout': {
+     'visibility':'none'
+   }
+});
 
-### Add a click behavior to a marker Layer
+self.map.addLayer({
+    "id": "HOVER_LAYER",
+    "type": "line",
+    'source': "counties",
+    'source-layer': 'NAME_OF_LAYER_FROM_MAPBOX_URL',
+    "paint": {
+      'line-color': '#ffffff',
+      'line-opacity': 0.8,
+      'line-width': 2
+    },
+    "filter": ["==", "FIELD_TO_FILTER_ON", ""]
+});
 
-### Add a click behavior to a polygon layer
+self.map.on("mousemove", "ORIGINAL_LAYER", function(e) {
+    self.map.setFilter("HOVER_LAYER", ["==", "FIELD_TO_FILTER_ON", e.features[0].properties.FIELD_TO_FILTER_ON]);
+});
 
-### Add a mouseover/mouseleave state to a layer
+self.map.on("mouseleave", "ORIGINAL_LAYER", function() {
+  self.map.setFilter("HOVER_LAYER", ["==", "FIELD_TO_FILTER_ON", ""]);
+});
+
+```
 
 ### Extract Data from the Map and Use it On Page
+```
+
+self.content = {
+  'features': []
+};
+
+
+//
+// Load your source from Mapbox
+//
+self.map.addSource("SOURCE_NAME", {
+    "type": "vector",
+    "url": 'mapbox://ACCOUNT.style'
+});
+
+
+//
+// Load source from the map
+//
+var sourceContent = self.map.querySourceFeatures("SOURCE_NAME", {
+  sourceLayer: "SOURCE_LAYER_NAME_IN_SOURCE",
+  filter: ["==", "SOME_FIELD", "1"] // OPTIONAL, REMOVE TO SHOW ALL
+});
+
+
+//
+// Loop over the source to build out the content you need
+//
+for(var i=0; i<sourceContent.length; i++){
+  self.content.features.push({
+    'title':sourceContent[i].properties['Title']
+  })
+}
+
+```
+[More information about map.querySourceFeatures](https://www.mapbox.com/mapbox-gl-js/api#map#querysourcefeatures)
+
+### Add a click behavior and return a popup
+```
+self.map.on('click', 'LAYER_NAME', function (e) {
+
+  return new mapboxgl.Popup()
+      .setLngLat(e.features[0].geometry.coordinates)
+      .setHTML("<div class='some-div'>" + e.features[0].properties['Title'] + "</div>")
+      .addTo(self.map);
+
+});
+```
 
 ### Zoom to a specific location
 ```
