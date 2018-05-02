@@ -41,24 +41,7 @@ For more information on working with Mapbox.com Access Tokens, please see
 <mapboxgl id="map" options="page.options" />
 ```
 
-2. Tell your controller to activate the map after the required Javascript has
-loaded into your page.
-```
-
-var self = this;
-
-self.map = null;
-
-...
-
-$rootScope.$on('mapboxgl.loaded', function(event, args) {
-
-  self.map = args.map;
-
-});
-```
-
-3. Tell your controller how and where to display the map in your view.
+2. Tell your controller how and where to display the map in your view.
 ```
 self.options = {
     container: 'map',
@@ -67,6 +50,21 @@ self.options = {
     zoom: 4,
     maxZoom: 15
 };
+```
+
+3. Tell your controller to do other things with your map.
+```
+
+var self = this;
+
+self.map = null;
+
+$rootScope.$on('mapboxgl.loaded', function(event, args) {
+
+  self.map = args.map;
+
+});
+
 ```
 
 ## Code Samples
