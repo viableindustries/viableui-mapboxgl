@@ -7,6 +7,7 @@ This module is intended for use with your https://www.viable.io/data account.
 1. Install the NPM package
 ````
 npm install git://github.com:viableindustries/viableui-mapboxgl.git --save
+npm install git://github.com:viableindustries/viableui-mapboxgl.git --save
 ````
 
 2. Include the following files into your Angular.js application index.html file.
