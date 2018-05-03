@@ -9,6 +9,13 @@ This module is intended for use with your https://www.viable.io/data account.
 npm install git://github.com/viableindustries/viableui-mapboxgl.git --save
 ````
 
+2. Include the Mapbox library and stylesheet
+```
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+```
+[Newest version of MapboxGL.js and CSS can be found at Mapbox.com](https://www.mapbox.com/mapbox-gl-js/api/)
+
 2. Include the following files into your Angular.js application index.html file.
 
 ```
