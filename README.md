@@ -12,9 +12,9 @@ npm install git://github.com/viableindustries/viableui-mapboxgl.git --save
 2. Include the following files into your Angular.js application index.html file.
 
 ```
-<script src="node_modules/viableui-mapboxgl/mapboxgl--module.js"></script>
-<script src="node_modules/viableui-mapboxgl/mapboxgl/mapboxgl--constant.js"></script>
-<script src="node_modules/viableui-mapboxgl/mapboxgl/mapboxgl--directive.js"></script>
+<script src="node_modules/viableui-mapboxgl/viableui-mapboxgl-module.js"></script>
+<script src="node_modules/viableui-mapboxgl/viableui-mapboxgl-constant.js"></script>
+<script src="node_modules/viableui-mapboxgl/viableui-mapboxgl-directive.js"></script>
 ```
 
 3. Add the ViableUI MapboxGL module to your Angular.js project along with your
