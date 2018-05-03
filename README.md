@@ -56,6 +56,8 @@ For more information on working with Mapbox.com Access Tokens, please see
 ```
 
 2. Tell your controller how and where to display the map in your view.
+These are placed at the controller level.
+
 ```
 self.options = {
     container: 'map',
@@ -67,6 +69,7 @@ self.options = {
 ```
 
 3. Tell your controller to do other things with your map.
+This are placed at the controller level.
 ```
 
 var self = this;
@@ -84,6 +87,8 @@ $rootScope.$on('mapboxgl.loaded', function(event, args) {
 ## Code Samples
 A list of one-off ViableUI compatible MapboxGL recipes that you can mix and
 match in your applications.
+
+The following commands are to be nested inside of the `$rootScope.$on('mapboxgl.loaded')` mentioned above.
 
 ### Track Your Map Loading and Manipluate it after load
 ```
