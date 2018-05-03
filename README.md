@@ -9,14 +9,21 @@ This module is intended for use with your https://www.viable.io/data account.
 npm install git://github.com/viableindustries/viableui-mapboxgl.git --save
 ````
 
-2. Include the Mapbox library and stylesheet
+2. Include the Mapbox stylesheet in the `<head>` of your `index.html` document
 ```
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
 ```
-[Newest version of MapboxGL.js and CSS can be found at Mapbox.com](https://www.mapbox.com/mapbox-gl-js/api/)
+[Newest version of CSS can be found at Mapbox.com](https://www.mapbox.com/mapbox-gl-js/api/)
 
-2. Include the following files into your Angular.js application index.html file.
+
+3. Include the MapboxGL Javascript file in the `<body>` of your `index.html` document above the library's include.
+```
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+```
+[Newest version of MapboxGL.js can be found at Mapbox.com](https://www.mapbox.com/mapbox-gl-js/api/)
+
+
+3. Include the following files into your Angular.js application index.html file.
 
 ```
 <script src="node_modules/viableui-mapboxgl/viableui-mapboxgl-module.js"></script>
@@ -24,7 +31,7 @@ npm install git://github.com/viableindustries/viableui-mapboxgl.git --save
 <script src="node_modules/viableui-mapboxgl/viableui-mapboxgl-directive.js"></script>
 ```
 
-3. Add the ViableUI MapboxGL module to your Angular.js project along with your
+4. Add the ViableUI MapboxGL module to your Angular.js project along with your
 Mapbox Access Token.
 ````
 angular
