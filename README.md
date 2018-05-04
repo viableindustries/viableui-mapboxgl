@@ -138,6 +138,14 @@ self.map.addLayer({
 [More information about map.addLayer](https://www.mapbox.com/mapbox-gl-js/api#map#addlayer)
 
 ### Set Basemaps and set their default visibility
+
+```
+  <div class="basemaps">
+    <input type="radio" name="basemap"  data-ng-click="page.basemap.satellite()" /><a href="javascript:void(0)">satellite</a>&nbsp; | &nbsp;
+    <input type="radio" name="basemap" data-ng-click="page.basemap.street()" /><a href="javascript:void(0)">street</a>
+</div>
+```
+
 ```
 self.basemap = {
   satellite: function() {
