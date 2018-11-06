@@ -15,38 +15,47 @@
    *   </mapboxgl>
    */
   angular.module('MapboxGL')
-    .directive('mapboxgl', function ($log, $rootScope) {
+    .directive('mapboxgl', function ($log, $rootScope, $timeout) {
 
       return {
-          scope: {
-            options: '='
-          },
-          restrict: 'E',
-          link: function(scope, element, attrs) {
+        scope: {
+          options: '='
+        },
+        restrict: 'E',
+        link: function(scope, element, attrs) {
 
-            /**
-             * Give feedback that the MapboxGL Directive has loaded
-             */
-            $log.log('Loaded MapboxGL::viableMapboxglDirective')
+          /**
+           * Give feedback that the MapboxGL Directive has loaded
+           */
+          $log.log('Loaded MapboxGL::viableMapboxglDirective')
 
-            /**
-             * Instantiate a new MapboxGL Map object
-             */
-            var map = new mapboxgl.Map(scope.options);
+          var self = {
+            "initializeMap": function(options_) {
 
-            /**
-             * Assign MapboxGL Map object to `scope.model` when map has
-             * finished loading.
-             */
-            map.on('load', function () {
+              /**
+               * Instantiate a new MapboxGL Map object
+               */
+              var map = new mapboxgl.Map(options_);
 
-              $rootScope.$broadcast('mapboxgl.loaded', {
-                map: map
+              /**
+               * Assign MapboxGL Map object to `scope.model` when map has
+               * finished loading.
+               */
+              map.on('load', function () {
+                $rootScope.$broadcast('mapboxgl.loaded', {
+                  "map_id": options_.map_id,
+                  "map": map
+                });
               });
 
-            });
+            }
+          };
 
-          }
+          $timeout(function() {
+            self.initializeMap(scope.options);
+          });
+
+        }
       };
     });
 
